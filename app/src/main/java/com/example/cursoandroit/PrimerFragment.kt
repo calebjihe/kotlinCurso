@@ -17,7 +17,7 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
         val button = view.findViewById<Button>(R.id.btn_navegar)
         button.setOnClickListener {
             requireActivity().supportFragmentManager.commit {
-                replace(R.id.fragment_container_view, SegundoFragment())
+                replace(R.id.fragment_container_view, SegundoFragment.newInstance("cALEB", 34))
                 addToBackStack("primerFragmen")
             }
         }
