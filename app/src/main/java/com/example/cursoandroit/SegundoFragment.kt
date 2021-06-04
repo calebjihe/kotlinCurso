@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 
 class SegundoFragment : Fragment(R.layout.fragment_segundo) {
     private var nombre:String? = ""
@@ -23,7 +25,13 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val text = view.findViewById<TextView>(R.id.txt_output)
+        val button =  view.findViewById<Button>(R.id.btn_enviar_datos)
+        button.setOnClickListener {
+            val result = "Resultado"
+            setFragmentResult("requestKey", bundleOf("bundleKey" to result))
+        }
         text.text = "$nombre $edad"
+
     }
 
     companion object{
